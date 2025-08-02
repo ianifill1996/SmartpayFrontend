@@ -1,69 +1,73 @@
-# React + TypeScript + Vite
+# SmartPay Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SmartPay is a modern and responsive payment tracking application built with React 19, Vite, and Context API. It allows users to register, log in, and manage personal payments, with smart categorization powered by OpenAI.
 
-Currently, two official plugins are available:
+## Features
+	•	JWT-based user authentication (Login / Register)
+	•	Add, edit, and delete personal payments
+	•	AI-assisted category detection using OpenAI
+	• View and filter payment history
+	• Protected routes and state management using Context API
+	•	Built with React 19 and Vite for blazing-fast performance
+	• Fully responsive and mobile-friendly design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ## Technologies Used
+	•	React 19 (Canary)
+	•	Vite
+	•	React Router DOM
+	•	Axios
+	•	Context API
+	•	Plain CSS
+	•	OpenAI API
 
-## Expanding the ESLint configuration
+ # Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+ ## Prerequisites
+	•	Node.js ^20.19.0 or >=22.12.0
+	•	Backend running at http://localhost:5001/api or hosted (e.g. Render)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+ ## Installation
+git clone https://github.com/your-username/smartpay-frontend.git
+cd smartpay-frontend
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Environment Variables
+Create a .env file in the root:
+VITE_BACKEND_URL=http://localhost:5001/api
+VITE_OPENAI_KEY=your_openai_key
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Run Locally
+npm run dev
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Deployment
+To deploy on Netlify:
+	1.	Push the frontend code to GitHub
+	2.	Go to Netlify → New Site → Import from GitHub
+	3.	Set the build settings:
+	•	Build Command: npm run build
+	•	Publish Directory: dist
+	4.	Add your .env variables in Netlify’s UI
+	5.	Deploy 
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# File Structure
+src/
+├── api.js
+├── App.jsx
+├── main.jsx
+├── index.css
+├── pages/
+│   ├── Login.jsx
+│   ├── Register.jsx
+│   ├── Dashboard.jsx
+│   └── HomePage.jsx
+├── components/
+│   ├── NavBar.jsx
+│   ├── PaymentForm.jsx
+│   ├── PaymentList.jsx
+│   └── ProtectedRoutes.jsx
+└── context/
+    └── AuthContext.jsx
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# License
+
+This project is for educational and portfolio use. Contact the author before reuse in commercial settings.
