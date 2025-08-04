@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PaymentForm from "../components/PaymentForm";
 import PaymentList from "../components/PaymentList";
+import ReceiptParser from "../components/ReceiptParser";
 import api from "../api";
 import { useAuth } from "../context/AuthContext";
 
@@ -9,6 +10,7 @@ function Dashboard() {
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userName, setUserName] = useState("");
+  const [receiptData, setReceiptData] = useState(null); // for optional auto-fill
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -33,12 +35,24 @@ function Dashboard() {
     fetchPayments();
   }, []);
 
+  const handleFillFromReceipt = (parsed) => {
+    console.log("Parsed receipt result:", parsed);
+    setReceiptData(parsed); // this can be passed to PaymentForm as a prop
+  };
+
   return (
     <div style={{ padding: "20px", maxWidth: "800px", margin: "auto" }}>
       <h2>Welcome back, {userName}!</h2>
+
+      {/* Receipt Parsing Component */}
+      <ReceiptParser onFillPayment={handleFillFromReceipt} />
+
+      {/* Payment Form with optional prefill */}
       <PaymentForm
         onAdd={(newPayment) => setPayments((prev) => [...prev, newPayment])}
+        prefill={receiptData}
       />
+
       {loading ? (
         <p>Loading payments...</p>
       ) : (
