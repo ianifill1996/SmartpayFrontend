@@ -23,7 +23,7 @@ SmartPay is a modern and responsive payment tracking application built with Reac
  # Getting Started
 
  ## Backend files
- [SmartpayBacked]([
+ (SmartpayBacked)([
 ](https://github.com/ianifill1996/SmartpayBackend)
  ## Prerequisites
 	•	Node.js ^20.19.0 or >=22.12.0
