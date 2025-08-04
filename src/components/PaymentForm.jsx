@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../api";
 
-function PaymentForm({ onAdd }) {
+function PaymentForm({ onAdd, prefill }) {
   const [formData, setFormData] = useState({
     amount: "",
     description: "",
@@ -12,10 +12,26 @@ function PaymentForm({ onAdd }) {
   const [loading, setLoading] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
 
+  // 👇 New: apply prefill if available
+  useEffect(() => {
+    if (prefill) {
+      setFormData((prev) => ({
+        ...prev,
+        amount: prefill.amount || "",
+        description: prefill.description || "",
+        method: prefill.method || "",
+        category: prefill.category || "",
+        date: prefill.date || "",
+      }));
+    }
+  }, [prefill]);
+
+  // ✅ FIX: Define handleChange
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
 

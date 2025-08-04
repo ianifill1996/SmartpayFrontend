@@ -1,3 +1,4 @@
+// src/pages/Dashboard.jsx
 import { useEffect, useState } from "react";
 import PaymentForm from "../components/PaymentForm";
 import PaymentList from "../components/PaymentList";
@@ -49,7 +50,10 @@ function Dashboard() {
 
       {/* Payment Form with optional prefill */}
       <PaymentForm
-        onAdd={(newPayment) => setPayments((prev) => [...prev, newPayment])}
+        onAdd={(newPayment) => {
+          setPayments((prev) => [...prev, newPayment]);
+          setReceiptData(null); // Clear prefill after adding
+        }}
         prefill={receiptData}
       />
 

@@ -11,15 +11,16 @@ function ReceiptParser({ onFillPayment }) {
     setLoading(true);
     setError("");
     try {
-      const { data } = await api.post("/ai/parse-receipt", { text: receiptText });
+      const { data } = await api.post("/ai/parse-receipt", { rawText: receiptText }); // <-- FIXED KEY
       setParsedData(data);
     } catch (err) {
       setError("Failed to parse receipt.");
+      console.error("Parse error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
     }
   };
-
+  
   return (
     <div style={{ marginTop: "2rem", background: "#f1f1f1", padding: "1rem", borderRadius: "8px" }}>
       <h3>Parse Receipt</h3>
