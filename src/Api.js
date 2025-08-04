@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5001/api", // adjust if needed
+  baseURL: "https://smartpaybackend.onrender.com/api",
 });
 
 // Automatically attach JWT token from localStorage
