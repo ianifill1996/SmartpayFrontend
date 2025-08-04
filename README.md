@@ -8,11 +8,11 @@ SmartPay is a modern and responsive payment tracking application built with Reac
 	•	AI-assisted category detection using OpenAI
 	• View and filter payment history
 	• Protected routes and state management using Context API
-	•	Built with React 19 and Vite for blazing-fast performance
+	•	Built with React 18 and Vite for blazing-fast performance
 	• Fully responsive and mobile-friendly design
 
  ## Technologies Used
-	•	React 19 (Canary)
+	•	React 18
 	•	Vite
 	•	React Router DOM
 	•	Axios
@@ -24,10 +24,14 @@ SmartPay is a modern and responsive payment tracking application built with Reac
 
  ## Backend files
  [SmartpayBacked](https://github.com/ianifill1996/SmartpayBackend)
- ## Prerequisites
-	•	Node.js ^20.19.0 or >=22.12.0
-	•	Backend running at http://localhost:5001/api or hosted (e.g. Render)
+	Make sure it’s running locally at:
+	http://localhost:5001/api
 
+ 
+ ## Prerequisites
+	•	Node.js v20.19.0 or ≥ 22.12.0
+	•	A valid OpenAI API key
+	•	Backend service running locally or hosted (e.g., Render)
  ## Installation
 git clone https://github.com/your-username/smartpay-frontend.git
 cd smartpay-frontend
@@ -48,7 +52,7 @@ To deploy on Render:
 	3.	Set the build settings:
 	•	Build Command: npm run build
 	•	Publish Directory: dist
-	4.	Add your .env variables in Netlify’s UI
+	4.	Add your .env variables in Render’s UI
 	5.	Deploy 
 
 # File Structure
@@ -66,6 +70,7 @@ src/
 │   ├── NavBar.jsx
 │   ├── PaymentForm.jsx
 │   ├── PaymentList.jsx
+│   ├── ReceiptParser.jsx
 │   └── ProtectedRoutes.jsx
 └── context/
     └── AuthContext.jsx
