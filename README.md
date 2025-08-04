@@ -42,9 +42,9 @@ VITE_OPENAI_KEY=your_openai_key
 npm run dev
 
 # Deployment
-To deploy on Netlify:
+To deploy on Render:
 	1.	Push the frontend code to GitHub
-	2.	Go to Netlify → New Site → Import from GitHub
+	2.	Go to Render → New Site → Import from GitHub
 	3.	Set the build settings:
 	•	Build Command: npm run build
 	•	Publish Directory: dist
