@@ -2,10 +2,9 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://smartpaybackend.onrender.com/api",
+  baseURL: import.meta.env.VITE_BACKEND_URL, // ✅ uses env var
 });
 
-// Automatically attach JWT token from localStorage
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
